@@ -5,16 +5,28 @@ public class Ex04MethodTest {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         BookTest book = new BookTest();
+        BookTest book2 = new BookTest();
+        BookTest[] arrBook = new BookTest[2];
+        arrBook[0] = book;
+        arrBook[1] = book2;
 
-        System.out.println("책의 가격을 설정하세요.(10000원 이상 80000원 미만으로 설정 가능)");
-        int parameterPrice = scanner.nextInt();
-        book.price = parameterPrice;
-        if(parameterPrice >= 10000 && parameterPrice < 80000) {
-            book.setPrice(parameterPrice);
-            System.out.println("책의 가격은 " + book.price + "원 입니다.");
-        } else {
-            System.out.println("설정 가능하지 않은 가격입니다.");
+        while (true) {
+            for (int i = 0; i < arrBook.length; i++) {
+                System.out.println("책의 가격을 설정하세요.(10000원 이상 80000원 미만으로 설정 가능)");
+                int parameterPrice = scanner.nextInt();
+                arrBook[i].price = parameterPrice;
+                if(parameterPrice >= 10000 && parameterPrice < 80000) {
+                    arrBook[i].setPrice(parameterPrice);
+                    System.out.println((i+1) + " 번 책의 가격은 " + arrBook[i].price + "원 입니다.");
+                } else {
+                    System.out.println("설정 가능하지 않은 가격입니다.");
+                }
+            }
+            break;
+
         }
+
+
 
     }
 }
