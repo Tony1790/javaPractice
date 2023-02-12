@@ -35,9 +35,13 @@ class BookTest {
     int price;
     String title;
 
+    String[] author;
+
     void setPrice(int parameterPrice){
         this.price = price;
     }
+
+
 }
 
 /*
