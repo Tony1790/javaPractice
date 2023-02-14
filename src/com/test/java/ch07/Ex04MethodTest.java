@@ -10,22 +10,15 @@ public class Ex04MethodTest {
         arrBook[0] = book;
         arrBook[1] = book2;
 
-        while (true) {
-            for (int i = 0; i < arrBook.length; i++) {
-                System.out.println("책의 가격을 설정하세요.(10000원 이상 80000원 미만으로 설정 가능)");
-                int parameterPrice = scanner.nextInt();
-                arrBook[i].price = parameterPrice;
-                if(parameterPrice >= 10000 && parameterPrice < 80000) {
-                    arrBook[i].setPrice(parameterPrice);
-                    System.out.println((i+1) + " 번 책의 가격은 " + arrBook[i].price + "원 입니다.");
-                } else {
-                    System.out.println("설정 가능하지 않은 가격입니다.");
-                }
-            }
-            break;
+        for (int i = 0; i < arrBook.length; i++) {
+            System.out.println("가격을 입력하세요.(10000 ~ 79999)");
+            int price = scanner.nextInt();
+            arrBook[i].setPrice(price);
+            System.out.printf("가격은 %d원 입니다.", price);
+
+            System.out.println("책의 저자를 입력하세요.");
 
         }
-
 
 
     }
@@ -33,13 +26,13 @@ public class Ex04MethodTest {
 
 class BookTest {
     int price;
-    String title;
 
     String[] author;
 
-    void setPrice(int parameterPrice){
+    void setPrice(int price) {
         this.price = price;
     }
+
 
 
 }
