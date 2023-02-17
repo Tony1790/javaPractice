@@ -81,7 +81,7 @@ class Cart {
             if (books[i] == null)
                 break;
             System.out.println(books[i].getTitle());
-
+            System.out.println(books[i].getTitle());
         }
     }
 }
