@@ -1,6 +1,4 @@
-package com.test.java.ch10;
-
-import com.test.book.Book;
+package com.test.java.ch09;
 
 public class Ex03DowncastingTest {
 
