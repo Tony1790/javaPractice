@@ -2,29 +2,30 @@ package com.test.java.ch12;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
-public class Ex05ThrowTest {
-    public static void main(String[] args) {
-        Guest guest = new Guest();
+public class Ex06ThrowsTest {
+    public static void main(String[] args) throws MoneyIsNotEnough1 {
+        Guest1 guest = new Guest1();
         guest.setVisit(true);
 
         while(guest.isVisit()) {
-            guest = MachineService.form();
-            MachineService.perchase(guest);
+            guest = MachineService1.form();
+            MachineService1.perchase1(guest);
         }
 
     }
 }
 
-class MachineService {
-    static Drink drink1 = new Drink("코카콜라", 1500);
-    static Drink drink2 = new Drink("스프라이트", 1400);
-    static Drink drink3 = new Drink("스타벅스", 2500);
-    static Drink[] arr = {drink1, drink2, drink3};
+
+class MachineService1 {
+    static Drinkz drink1 = new Drinkz("코카콜라", 1500);
+    static Drinkz drink2 = new Drinkz("스프라이트", 1400);
+    static Drinkz drink3 = new Drinkz("스타벅스", 2500);
+    static Drinkz[] arr = {drink1, drink2, drink3};
 
     //게스트를 정의한다.
-    public static Guest form(){
+    public static Guest1 form(){
         Scanner scanner = new Scanner(System.in);
-        Guest guest = new Guest();
+        Guest1 guest = new Guest1();
 
         try {
             System.out.println("- 반갑습니다 고객님 -");
@@ -52,24 +53,16 @@ class MachineService {
         return guest;
     }
 
-    public static void perchase(Guest guest) {
-        try {
+    public static void perchase1(Guest1 guest) throws MoneyIsNotEnough1 {
             if(!(guest.getBalance() > 1400)) {
-                throw new MoneyIsNotEnough("잔액이 부족합니다.");
+                throw new MoneyIsNotEnough1("잔액이 부족합니다.");
             } else {
                 guest.setVisit(true);
             }
-        } catch (MoneyIsNotEnough e) {
-            System.out.println(e.getMessage());
-            System.out.println("잔액 부족");
-            guest.setVisit(false);
-        } catch (Exception e) {
-            System.out.println("시스템 에러");
-        }
     }
 }
 
-class Guest {
+class Guest1 {
     private int balance;
     //일단 킵. 추후 변경가능
     private int pick;
@@ -100,7 +93,7 @@ class Guest {
     }
 }
 
-class Drink {
+class Drinkz {
     private String name;
     private int price;
 
@@ -120,22 +113,14 @@ class Drink {
         this.price = price;
     }
 
-    Drink(String name, int price) {
+    Drinkz(String name, int price) {
         this.setName(name);
         this.setPrice(price);
     }
 }
 
-class MoneyIsNotEnough extends Exception {
-    public MoneyIsNotEnough(String message) {
+class MoneyIsNotEnough1 extends Exception {
+    public MoneyIsNotEnough1(String message) {
         super(message);
     }
 }
-/*
-문제 1.
-음료를 뽑을 수 있는 자판기 프로그램을 만들어 주세요.
-제공되는 음료 외의 번호 입력 시 발생되는 사용자 정의 예외 클래스를 작성해 주세요.
-잔액이 부족할 경우 발생되는 사용자 정의 예외 클래스를 작성해 주세요.
-각각의 예외 발생에 대해 예외처리하는 코드를 작성해 주세요.
-*/
-
