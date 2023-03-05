@@ -39,7 +39,7 @@ public class Ex02Date {
         System.out.println(sdf3.format(inputDate2));
         System.out.println();
 
-        SimpleDateFormat sdf4 = new SimpleDateFormat("'input date - 'yyyy-MM-dd", Locale.ENGLISH);
+        SimpleDateFormat sdf4 = new SimpleDateFormat("'input date : 'yyyy-MM-dd", Locale.ENGLISH);
         System.out.println(sdf4.format(inputDate2));
     }
 }
