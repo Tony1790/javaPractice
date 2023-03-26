@@ -79,6 +79,17 @@ public class Ex05Reduction {
         System.out.println(maxEBook);
         System.out.println();
 
+        System.out.println("< reduce >");
+        int minPrice =
+                ebooks
+                        .stream()
+                        .filter(b -> b.getCategory().equals(EBook.Category.LANG))
+                        .mapToInt(EBook::getPrice)
+                        .reduce(Integer::min)
+                        .getAsInt();
+        System.out.println(minPrice);
+        System.out.println();
+
         System.out.println("< collect >");
         Set<Integer> priceSet =
                 ebooks
