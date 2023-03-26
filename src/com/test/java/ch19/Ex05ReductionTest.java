@@ -1,9 +1,8 @@
 package com.test.java.ch19;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Ex05ReductionTest {
     public static void main(String[] args) {
@@ -48,6 +47,18 @@ public class Ex05ReductionTest {
                         .reduce(0, (a,b) -> a + (int)(b * 1.1f));
         System.out.println(sumPriceWithTax);
         System.out.println();
+
+        System.out.println("문제 4");
+        List<Integer> listEven = Arrays.asList(2,4,6,8,10,12,14,16,18,20);
+        List<Integer> listOdd = Arrays.asList(1,3,5,7,9,11,13,15,17,19);
+
+        List<Integer> list =
+                Stream.concat(listEven.stream(), listOdd.stream())
+                        .sorted()
+                        .collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
+        //ArrayList::new => Supplier, ArrayList::add => BiConsumer, ArrayList::addAll => BiConsumer
+        System.out.println(list);
+
     }
 }
 
