@@ -93,7 +93,7 @@ class Car {
     public void addTire(String tire) {
         tires.add(tire);            // unchecked
         String tireName = "Abc Tire";       // unused
-        Date date = new Date();a
+        Date date = new Date();
         date.getYear();         	// deprecation
     }
 
