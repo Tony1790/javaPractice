@@ -13,7 +13,6 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Ex03ObjectStreams {
